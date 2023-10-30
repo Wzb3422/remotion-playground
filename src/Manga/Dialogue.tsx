@@ -1,9 +1,7 @@
 import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {FONT_FAMILY} from './constants';
 
 const title: React.CSSProperties = {
-	fontFamily: FONT_FAMILY,
 	fontWeight: 'bold',
 	fontSize: 100,
 	textAlign: 'center',
@@ -20,18 +18,18 @@ const word: React.CSSProperties = {
 
 export const Dialogue: React.FC<{
 	text: string;
-}> = ({text}) => {
+	top: number;
+	left: number;
+}> = ({text, top = 0, left = 0}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
-
 	return (
-		<div className="px-1 py-2">
-			<span
-				style={{
-					color: '#444',
-				}}
-			>
+		<div
+			className="px-3 py-2 absolute border border-solid border-slate-800	bg-white rounded w-40"
+			style={{ top, left }}
+		>
+			<span className='text-slate-800	'>
 				{text}
 			</span>
 		</div>
