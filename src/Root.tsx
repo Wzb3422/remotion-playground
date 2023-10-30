@@ -1,6 +1,8 @@
 import {Composition} from 'remotion';
 import {HelloWorld, myCompSchema} from './HelloWorld';
 import {Logo, myCompSchema2} from './HelloWorld/Logo';
+import { Image } from './Manga/Image';
+import "./style.css";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -39,6 +41,16 @@ export const RemotionRoot: React.FC = () => {
 					logoColor1: '#91dAE2' as const,
 					logoColor2: '#86A8E7' as const,
 				}}
+			/>
+
+
+			<Composition
+				id="Image"
+				component={Image}
+				durationInFrames={200}
+				fps={30}
+				width={768}
+				height={512}
 			/>
 		</>
 	);
